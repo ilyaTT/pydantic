@@ -938,7 +938,7 @@ def create_model(
         __base__ = (cast(Type['Model'], BaseModel),)
 
     fields = {}
-    annotations = {}
+    annotations = deepcopy(__base__.__annotations__)
 
     for f_name, f_def in field_definitions.items():
         if not is_valid_field(f_name):
